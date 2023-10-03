@@ -1,0 +1,28 @@
+.notfound-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  justify-content: center;
+}
+
+.notfound-header {
+  text-align: center;
+  font-size: 140px;
+  font-weight: 400;
+}
+
+.notfound-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.notfound-link {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 60px;
+  text-decoration: none;
+  color: black;
+}
