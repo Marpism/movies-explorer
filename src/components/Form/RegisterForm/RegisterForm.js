@@ -12,21 +12,25 @@ function RegisterForm() {
       <label htmlFor="username" className='form__input-label'>Имя</label>
       <input
         className="form__input"
-        placeholder="Пупа2000"
+        placeholder="Введите имя"
         type="text"
         name="username"
         required
+        minLength={2}
+        maxLength={30}
       // onChange={handleEmailChange}
       // value={email || ''}
       ></input>
       <span className='input__error'></span>
-      <label for="email" className='form__input-label'>E-mail</label>
+      <label htmlFor="email" className='form__input-label'>E-mail</label>
       <input
         className="form__input"
-        placeholder="ya@ya.ru"
+        placeholder="Введите e-mail"
         type="email"
         name="email"
         required
+        minLength={2}
+        maxLength={30}
       // onChange={handleEmailChange}
       // value={email || ''}
       ></input>
@@ -35,10 +39,12 @@ function RegisterForm() {
       <label htmlFor="password" className='form__input-label'>Пароль</label>
       <input
         className="form__input"
-        placeholder="12345"
+        placeholder="Введите пароль"
         type="password"
         name="password"
         required
+        minLength={6}
+        maxLength={30}
       // onChange={handlePasswordChange}
       // value={password || ''}
       ></input>

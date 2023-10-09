@@ -6,37 +6,39 @@ const temporaryDur = "1ч 17м";
 
 function MoviesCardList() {
   return (
-    <section className='cardlist'>
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
-      <Card
-        name={temporaryName}
-        link={temporaryPic}
-        duration={temporaryDur}
-      />
+    <section className='cards'>
+      <ul className='cardlist'>
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+        <Card
+          name={temporaryName}
+          link={temporaryPic}
+          duration={temporaryDur}
+        />
+      </ul>
     </section>
   )
 }

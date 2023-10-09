@@ -11,11 +11,10 @@ function Main() {
       <Header />
       <main className='content'>
         <SearchForm />
-        <div className='line'></div>
         <MoviesCardList />
         <Loader />
-        <Footer />
       </main>
+      <Footer />
     </>
   )
 }

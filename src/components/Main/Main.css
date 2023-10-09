@@ -3,12 +3,6 @@
   margin: 70px auto;
 }
 
-.line {
-  background-color: #e8e8e8;
-  height: 1px;
-  margin-bottom: 80px;
-}
-
 @media screen and (max-width: 1024px) {
   .content {
     margin: 70px 30px;

@@ -22,6 +22,8 @@
 
 .search-form__icon {
   width: 34px;
+  padding-left: 19px;
+  padding-right: 10px;
 }
 
 .search-form__input {
@@ -35,7 +37,7 @@
 }
 
 .search-form__input:focus-visible {
-  outline: none;
+  outline: 1px solid rgb(196, 207, 196);
 }
 
 .search-form__buttons {
@@ -67,13 +69,13 @@
   width: 1px;
   height: 40px;
   background-color: #cbcbcb;
-  margin-right: 19px;
+  margin-right: 29px;
 }
 
 .search-form__label {
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 20px;
+  margin-right: 30px;
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;
@@ -90,6 +92,16 @@
   border-radius: 20px;
   margin-right: 14px;
   background-image: url("../../images/smalltumb_on.svg");
+}
+
+@media screen and (max-width: 768px) {
+  .search-container {
+    margin: 80px auto 109px auto;
+  }
+
+  .search-form__line {
+    margin-right: 19px;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -115,4 +127,30 @@
   .search-form__submit-button {
     margin: 0;
   }
+}
+
+
+@media screen and (max-width: 320px) {
+  .search-form__icon {
+    display: none;
+  }
+
+  .search-form__input {
+    padding-left: 19px;
+    color: #A0A0A0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px; 
+  }
+
+  .search-form__buttons {
+    padding-right: 19px;
+  }
+
+  .search-form__label {
+    font-size: 11px;
+    font-style: normal;
+    line-height: 18px;
+  }
+  
 }

@@ -46,9 +46,30 @@
   opacity: 0.7;
 }
 
+.footer__link:last-of-type {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1140px) {
+  .footer {
+    margin: 0 30px 20px 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+
+  }
+}
+
 @media screen and (max-width: 320px) {
+  .footer {
+    margin: 0 10px 20px 10px;
+  }
+
   .footer__title {
     font-size: 12px;
+    margin-top: 135px;
   }
 
   .footer__text-area {
@@ -62,7 +83,7 @@
   }
 
   .footer__link {
-    margin: 12px auto;
+    margin: 12px 0;
     font-size: 12px;
   }
 
@@ -73,5 +94,6 @@
   .footer__copyright {
     color: #a0a0a0;
     font-size: 12px;
+    margin: 0 0 20px 0;
   }
 }
