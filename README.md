@@ -6,3 +6,5 @@
 Ссылка на репозиторий: https://github.com/Marpism/movies-explorer-frontend.git
 
 Ссылка на сайт: https://moviexplo.nomoredomainsmonster.ru/
+
+Ссылка на pull request: https://github.com/Marpism/movies-explorer/pull/2
