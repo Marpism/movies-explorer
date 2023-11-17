@@ -25,6 +25,7 @@ function App() {
     mainApi.register(name, email, password)
       .then(() => {
         setIsLoggedIn(true)
+        navigate('/', { replace: true })
       })
       .catch((err) => {
         if (err.status === 409) {
