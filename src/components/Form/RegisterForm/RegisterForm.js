@@ -1,13 +1,36 @@
 import '../Form.css'
 import Form from '../Form';
+import { useState } from 'react';
 
-function RegisterForm() {
+function RegisterForm({ onRegistration, inputError }) {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onRegistration(name, email, password);
+  }
+
   return (
     <Form
       title="Добро пожаловать!"
       name="register"
       buttonText="Зарегистрироваться"
-    // onSubmit=
+    onSubmit={handleSubmit}
     >
       <label htmlFor="username" className='form__input-label'>Имя</label>
       <input
@@ -18,8 +41,8 @@ function RegisterForm() {
         required
         minLength={2}
         maxLength={30}
-      // onChange={handleEmailChange}
-      // value={email || ''}
+      onChange={handleNameChange}
+      value={name || ''}
       ></input>
       <span className='input__error'></span>
       <label htmlFor="email" className='form__input-label'>E-mail</label>
@@ -31,8 +54,8 @@ function RegisterForm() {
         required
         minLength={2}
         maxLength={30}
-      // onChange={handleEmailChange}
-      // value={email || ''}
+      onChange={handleEmailChange}
+      value={email || ''}
       ></input>
       <span className='input__error'></span>
 
@@ -45,9 +68,11 @@ function RegisterForm() {
         required
         minLength={6}
         maxLength={30}
-      // onChange={handlePasswordChange}
-      // value={password || ''}
+      onChange={handlePasswordChange}
+      value={password || ''}
       ></input>
+
+      <p className='input__error'>{inputError}</p>
 
     </Form>
   )

@@ -40,7 +40,7 @@
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
-  transition: 0.2s;
+  /* transition: 0.2s; */
   margin-top: 28px;
   display: block;
   width: fit-content;
@@ -68,7 +68,6 @@
   background-image: url("../../../images/profile_icon_2.svg");
   background-repeat: no-repeat;
   background-position: right;
-  /* transition: 0.2s; */
   margin-bottom: 90px;
 }
 
@@ -84,7 +83,6 @@
   top: -105px;
   right: 25px;
   cursor: pointer;
-  /* transition: 0.2s; */
 }
 
 .burger-menu__close-button:hover {

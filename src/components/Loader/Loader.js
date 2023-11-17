@@ -1,9 +1,10 @@
 import './Loader.css'
 
-function Loader() {
+function Loader({loadMoreMovies}) {
+
   return (
     <section className='loader'>
-      <button type='button' className='loader__button'>Ещё</button>
+      <button type='button' className='loader__button' onClick={() => loadMoreMovies()}>Ещё</button>
     </section>
   )
 }

@@ -1,6 +1,3 @@
-.search {
-}
-
 .search-container {
   height: 72px;
   border-radius: 9px;
@@ -27,13 +24,15 @@
 }
 
 .search-form__input {
-  padding: 0;
+  padding: 7px;
   width: 100%;
   border: none;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  color: #a0a0a0;
+  color: #000000;
+  margin-right: 10px;
+  border-radius: 9px;
 }
 
 .search-form__input:focus-visible {
@@ -91,7 +90,12 @@
   height: 20px;
   border-radius: 20px;
   margin-right: 14px;
+  background-image: url("../../images/smalltumboff.svg");
+}
+
+.search-form__toggle-button_on {
   background-image: url("../../images/smalltumb_on.svg");
+
 }
 
 @media screen and (max-width: 768px) {

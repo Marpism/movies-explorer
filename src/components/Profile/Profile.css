@@ -72,6 +72,8 @@
   text-decoration: none;
   margin-bottom: 16px;
   transition: 0.2s;
+  border: none;
+  background-color: transparent;
 }
 
 .link:hover {
@@ -80,6 +82,10 @@
 
 .link_color_red {
   color: rgba(255, 64, 98, 1);
+}
+
+.invisible {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

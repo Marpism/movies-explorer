@@ -1,13 +1,8 @@
 import './Landing.css';
 import pic from '../../images/margo.png';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 
 function Landing() {
   return (
-    <>
-      <Header
-      />
       <main className='landing'>
         <section className='landing__header'>
           <div className='landing__banner'>
@@ -98,8 +93,6 @@ function Landing() {
         </section>
 
       </main>
-      <Footer />
-    </>
   )
 }
 

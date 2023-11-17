@@ -1,25 +1,61 @@
 import './Profile.css';
 import Header from '../Header/Header';
-import { Link } from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Profile() {
+function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
+
+  const currentUser = useContext(CurrentUserContext);
+
+  const [isNotEditable, setIsNotEditable] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    setName(currentUser.data.name);
+    setEmail(currentUser.data.email)
+  }, [currentUser.data.name, currentUser.data.email]);
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handleEditClick() {
+    setIsNotEditable(false);
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    handleSubmit(name, email);
+  }
+
+  function onSignOut() {
+    handleSignOut()
+  }
+
   return (
     <>
-      <Header />
+      <Header isLoggedIn={isLoggedIn}/>
       <main className='profile-form__container'>
         <section>
           <form name="profile-form" className="profile-form">
-            <h1 className="profile-form__title">Привет, Имя!</h1>
+            <h1 className="profile-form__title">Привет, {name}!</h1>
             <fieldset className="profile-form__fieldset">
               <div className='profile-form__input-container'>
                 <label htmlFor="name" className='profile-form__input-label'>Имя</label>
                 <input
                   className="profile-form__input"
-                  value="Юзер"
+                  value={name}
                   type="text"
                   name="name"
-                  // required
-                  disabled
+                  minLength={2}
+                  maxLength={30}
+                  onChange={handleNameChange}
+                  disabled={isNotEditable}
                 ></input>
               </div>
               <div className='profile-form__split-line'></div>
@@ -27,20 +63,23 @@ function Profile() {
                 <label htmlFor="email" className='profile-form__input-label'>E-mail</label>
                 <input
                   className="profile-form__input"
-                  value="ya@ya.ru"
+                  value={email}
                   type="email"
                   name="email"
-                  // required
-                  disabled
+                  minLength={2}
+                  maxLength={30}
+                  onChange={handleEmailChange}
+                  disabled={isNotEditable}
                 ></input>
               </div>
-              {/* <button type="submit" name="submit" className="form__submit-button"></button> */}
+              <p className='input__error'>{inputError}</p>
+              <button type="submit" name="submit" className={isNotEditable ? "form__submit-button invisible" : "form__submit-button"} onClick={onSubmit}>Сохранить</button>
             </fieldset>
           </form>
         </section>
-        <div className='profile-form__links'>
-          <a className='link' href='#'>Редактировать</a>
-          <Link to="/" className='link link_color_red' >Выйти из аккаунта</Link>
+        <div className={isNotEditable ? 'profile-form__links' : 'profile-form__links invisible'}>
+          <button type='button' className='link' onClick={handleEditClick}>Редактировать</button>
+          <button type='button' className='link link_color_red' onClick={onSignOut}>Выйти из аккаунта</button>
         </div>
       </main>
     </>
