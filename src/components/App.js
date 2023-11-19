@@ -25,7 +25,7 @@ function App() {
     mainApi.register(name, email, password)
       .then(() => {
         setIsLoggedIn(true)
-        navigate('/', { replace: true })
+        navigate('/movies', { replace: true })
       })
       .catch((err) => {
         if (err.status === 409) {
@@ -40,8 +40,8 @@ function App() {
     setInputError('');
     mainApi.login(email, password)
       .then(() => {
-        setIsLoggedIn(true)
-        navigate('/', { replace: true })
+        setIsLoggedIn(true);
+        navigate('/movies', { replace: true })
       })
       .catch((err) => {
         if (err.status === 401) {
@@ -86,6 +86,7 @@ function App() {
   function handleProfileSubmit(name, email) {
     setInputError('');
     mainApi.patchUserData(name, email)
+    .then(() => alert('Изменения успешно сохранены!'))
     .catch((err) => {
       if (err.status === 409) {
         setInputError('Пользователь с таким email уже существует')

@@ -1,11 +1,13 @@
 import '../Form.css'
 import Form from '../Form';
 import { useState } from 'react';
+import { EMAIL_REGEXP } from "../../../utils/constants.js";
 
 function LoginForm({ onLogin, inputError }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailValidationError, setEmailValidationError] = useState('');
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -17,7 +19,12 @@ function LoginForm({ onLogin, inputError }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin(email, password);
+    if (EMAIL_REGEXP.test(email)) {
+      setEmailValidationError('');
+      onLogin(email, password);
+    } else {
+      setEmailValidationError('Введён некорректный email');
+    }
   }
 
   return (
@@ -40,6 +47,8 @@ function LoginForm({ onLogin, inputError }) {
       value={email || ''}
       ></input>
 
+      <p className='input__error'>{emailValidationError}</p>
+
       <label htmlFor="password" className='form__input-label'>Пароль</label>
       <input
         className="form__input"
@@ -54,7 +63,6 @@ function LoginForm({ onLogin, inputError }) {
       ></input>
 
       <p className='input__error'>{inputError}</p>
-
     </Form>
   )
 }

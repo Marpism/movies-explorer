@@ -1,12 +1,14 @@
 import '../Form.css'
 import Form from '../Form';
 import { useState } from 'react';
+import { EMAIL_REGEXP } from "../../../utils/constants.js";
 
 function RegisterForm({ onRegistration, inputError }) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailValidationError, setEmailValidationError] = useState('');
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -22,7 +24,12 @@ function RegisterForm({ onRegistration, inputError }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onRegistration(name, email, password);
+    if (EMAIL_REGEXP.test(email)) {
+      setEmailValidationError('');
+      onRegistration(name, email, password);
+    } else {
+      setEmailValidationError('Введён некорректный email');
+    }
   }
 
   return (
@@ -44,7 +51,7 @@ function RegisterForm({ onRegistration, inputError }) {
       onChange={handleNameChange}
       value={name || ''}
       ></input>
-      <span className='input__error'></span>
+      
       <label htmlFor="email" className='form__input-label'>E-mail</label>
       <input
         className="form__input"
@@ -57,7 +64,8 @@ function RegisterForm({ onRegistration, inputError }) {
       onChange={handleEmailChange}
       value={email || ''}
       ></input>
-      <span className='input__error'></span>
+      
+      <p className='input__error'>{emailValidationError}</p>
 
       <label htmlFor="password" className='form__input-label'>Пароль</label>
       <input

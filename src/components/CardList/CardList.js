@@ -2,6 +2,16 @@ import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
 import Preloader from "../Preloader/Preloader";
 import { useState, useEffect } from "react";
+import {
+  DESKTOP_MIN_WIDTH,
+  TABLET_MIN_WIDTH,
+  DESKTOP_MOVIE_COUNT,
+  TABLET_MOVIE_COUNT,
+  MOBILE_MOVIE_COUNT,
+  DESKTOP_COLUMN_COUNT,
+  TABLET_COLUMN_COUNT,
+  MOBILE_COLUMN_COUNT,
+} from "../../utils/constants.js";
 
 function CardList({
   cards,
@@ -18,15 +28,15 @@ function CardList({
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 768) {
-        setMovieCount(12);
-        setColumnCount(3);
-      } else if (window.innerWidth >= 580) {
-        setMovieCount(8);
-        setColumnCount(2);
+      if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
+        setMovieCount(DESKTOP_MOVIE_COUNT);
+        setColumnCount(DESKTOP_COLUMN_COUNT);
+      } else if (window.innerWidth >= TABLET_MIN_WIDTH) {
+        setMovieCount(TABLET_MOVIE_COUNT);
+        setColumnCount(TABLET_COLUMN_COUNT);
       } else {
-        setMovieCount(5);
-        setColumnCount(2);
+        setMovieCount(MOBILE_MOVIE_COUNT);
+        setColumnCount(MOBILE_COLUMN_COUNT);
       }
     }
 

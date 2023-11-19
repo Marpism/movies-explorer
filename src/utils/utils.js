@@ -1,3 +1,5 @@
+import { SHORTS_MAX_DURATION } from "./constants.js";
+
 function filterByName(movie, request) {
   if (movie.nameRU.toLowerCase().includes(request.toLowerCase()) ||
     movie.nameEN.toLowerCase().includes(request.toLowerCase())) {
@@ -6,7 +8,7 @@ function filterByName(movie, request) {
 }
 
 function filterByDuration(movie) {
-  return movie.duration <= 40;
+  return movie.duration <= SHORTS_MAX_DURATION;
 }
 
 export function filterMovies(data, request, isShorts) {

@@ -2,6 +2,7 @@ import './Profile.css';
 import Header from '../Header/Header';
 import { useEffect, useState, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { EMAIL_REGEXP } from "../../utils/constants.js";
 
 function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
 
@@ -10,11 +11,21 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
   const [isNotEditable, setIsNotEditable] = useState(true);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [emailValidationError, setEmailValidationError] = useState('');
+  const [submitDisabled, setSubmitDisabled] = useState(true);
 
   useEffect(() => {
     setName(currentUser.data.name);
     setEmail(currentUser.data.email)
   }, [currentUser.data.name, currentUser.data.email]);
+  
+  useEffect(() => {
+    if (name === currentUser.data.name && email === currentUser.data.email) {
+      setSubmitDisabled(true);
+    } else {
+      setSubmitDisabled(false);
+    }
+  }, [name, email, currentUser.data.name, currentUser.data.email]);
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -30,7 +41,13 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    handleSubmit(name, email);
+    if (EMAIL_REGEXP.test(email)) {
+      setEmailValidationError('');
+      handleSubmit(name, email);
+      setIsNotEditable(true);
+    } else {
+      setEmailValidationError('Введён некорректный email');
+    }
   }
 
   function onSignOut() {
@@ -72,8 +89,9 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
                   disabled={isNotEditable}
                 ></input>
               </div>
+              <p className='input__error'>{emailValidationError}</p>
               <p className='input__error'>{inputError}</p>
-              <button type="submit" name="submit" className={isNotEditable ? "form__submit-button invisible" : "form__submit-button"} onClick={onSubmit}>Сохранить</button>
+              <button type="submit" name="submit" className={isNotEditable ? "form__submit-button invisible" : "form__submit-button"} onClick={onSubmit} disabled={submitDisabled}>Сохранить</button>
             </fieldset>
           </form>
         </section>
