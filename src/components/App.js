@@ -24,8 +24,7 @@ function App() {
     setInputError('');
     mainApi.register(name, email, password)
       .then(() => {
-        setIsLoggedIn(true)
-        navigate('/movies', { replace: true })
+        handleLogin(email, password);
       })
       .catch((err) => {
         if (err.status === 409) {

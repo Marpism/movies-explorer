@@ -45,6 +45,8 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
       setEmailValidationError('');
       handleSubmit(name, email);
       setIsNotEditable(true);
+      setName(currentUser.data.name);
+      setEmail(currentUser.data.email)
     } else {
       setEmailValidationError('Введён некорректный email');
     }
