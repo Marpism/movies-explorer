@@ -2,7 +2,7 @@ import './Form.css';
 import logo from '../../images/logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-function Form({ title, name, children, buttonText, onSubmit }) {
+function Form({ title, name, children, buttonText, onSubmit, submitDisabled}) {
 
   const location = useLocation();
 
@@ -21,7 +21,7 @@ function Form({ title, name, children, buttonText, onSubmit }) {
           <fieldset className="form__fieldset">
             <h1 className="form__title">{title}</h1>
             {children}
-            <button type="submit" name="submit" className="form__submit-button">{buttonText || 'Войти'}</button>
+            <button type="submit" name="submit" className="form__submit-button" disabled={submitDisabled}>{buttonText || 'Войти'}</button>
           </fieldset>
         </form>
       </section>

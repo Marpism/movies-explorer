@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import { useEffect, useState, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { EMAIL_REGEXP } from "../../utils/constants.js";
+import mainApi from '../../utils/MainApi';
 
 function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
 
@@ -11,29 +12,47 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
   const [isNotEditable, setIsNotEditable] = useState(true);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [nameValidationError, setNameValidationError] = useState('');
   const [emailValidationError, setEmailValidationError] = useState('');
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
-  useEffect(() => {
-    setName(currentUser.data.name);
-    setEmail(currentUser.data.email)
-  }, [currentUser.data.name, currentUser.data.email]);
-  
-  useEffect(() => {
-    if (name === currentUser.data.name && email === currentUser.data.email) {
-      setSubmitDisabled(true);
-    } else {
-      setSubmitDisabled(false);
-    }
-  }, [name, email, currentUser.data.name, currentUser.data.email]);
-
   function handleNameChange(e) {
     setName(e.target.value);
+    
+    if (e.target.value.length > 1) {
+      setNameValidationError('');
+    } else {
+      setNameValidationError('Имя не может быть короче 2 букв');
+    }
   }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
+    
+    if (EMAIL_REGEXP.test(e.target.value)) {
+      setEmailValidationError('');
+    } else {
+      setEmailValidationError('Введён некорректный email');
+    }
   }
+
+  useEffect(() => {
+    if (currentUser.data) {
+      setName(currentUser.data.name);
+      setEmail(currentUser.data.email);
+    }
+  }, [currentUser]);
+  
+  useEffect(() => {
+    if (currentUser.data) {
+    if ((name === currentUser.data.name && email === currentUser.data.email)
+      || !EMAIL_REGEXP.test(email) || name.length < 2) {
+      setSubmitDisabled(true);
+    } else {
+      setSubmitDisabled(false);
+    }
+  }
+  }, [name, email, currentUser]);
 
   function handleEditClick() {
     setIsNotEditable(false);
@@ -45,8 +64,8 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
       setEmailValidationError('');
       handleSubmit(name, email);
       setIsNotEditable(true);
-      setName(currentUser.data.name);
-      setEmail(currentUser.data.email)
+      setName(name);
+      setEmail(email)
     } else {
       setEmailValidationError('Введён некорректный email');
     }
@@ -62,7 +81,7 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
       <main className='profile-form__container'>
         <section>
           <form name="profile-form" className="profile-form">
-            <h1 className="profile-form__title">Привет, {name}!</h1>
+            <h1 className="profile-form__title">Привет, {currentUser.data ? currentUser.data.name : ''}!</h1>
             <fieldset className="profile-form__fieldset">
               <div className='profile-form__input-container'>
                 <label htmlFor="name" className='profile-form__input-label'>Имя</label>
@@ -77,6 +96,7 @@ function Profile({ handleSignOut, handleSubmit, isLoggedIn, inputError }) {
                   disabled={isNotEditable}
                 ></input>
               </div>
+              <p className='input__error'>{nameValidationError}</p>
               <div className='profile-form__split-line'></div>
               <div className='profile-form__input-container'>
                 <label htmlFor="email" className='profile-form__input-label'>E-mail</label>

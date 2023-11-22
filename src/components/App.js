@@ -15,10 +15,13 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function App() {
 
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState((localStorage.getItem('jwt') ? true : false));
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState('');
   const [savedMovies, setSavedMovies] = useState([]);
+
+  // console.log(isLoggedIn);
 
   function handleRegistration(name, email, password) {
     setInputError('');
@@ -56,7 +59,7 @@ function App() {
     if (token) {
       mainApi.checkToken(token)
         .then((res) => {
-          setCurrentUser(res)
+          setCurrentUser(res);
           setIsLoggedIn(true);
         })
         .catch((err) => {
@@ -85,6 +88,7 @@ function App() {
   function handleProfileSubmit(name, email) {
     setInputError('');
     mainApi.patchUserData(name, email)
+    .then((res) => setCurrentUser(res))
     .then(() => alert('Изменения успешно сохранены!'))
     .catch((err) => {
       if (err.status === 409) {
