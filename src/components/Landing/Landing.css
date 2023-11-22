@@ -1,0 +1,558 @@
+.landing__header {
+  background: #f3c1f8;
+}
+
+.landing__banner {
+  height: 520px;
+  background-image: url("../../images/landing-logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing__title {
+  margin: 0 auto;
+  max-width: 730px;
+  color: #000;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+
+.landing__menu {
+  background-color: #000;
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__menu-link {
+  color: white;
+  padding-right: 40px;
+  transition: 0.2s;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.landing__menu-link:hover {
+  opacity: 0.7;
+}
+
+.landing__menu-link:last-of-type {
+  padding: 0;
+}
+
+.landing__about-project {
+  max-width: 1140px;
+  margin: 110px auto;
+}
+
+.landing__subtitle {
+  color: #000;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.88px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+.landing__about-container {
+  display: flex;
+  margin: 70px 0 110px 0;
+}
+
+.landing__abouts {
+  width: 50%;
+  text-align: left;
+}
+
+.landing__about-header {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  margin: 0 auto 26px auto;
+}
+
+.landing__about-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+}
+
+.landing__scale-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 36px 36px;
+  gap: 10px 0;
+}
+
+.landing__scale_dark {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.landing__scale_light {
+  background: #f2f2f2;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.landing__scale-text_size_s {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.landing__scale-text_size_m {
+  margin: 0;
+  color: #a0a0a0;
+  text-align: center;
+  font-weight: 500;
+  line-height: 17px;
+  margin: 10px;
+}
+
+.landing__techs {
+  background: #f5f5f5;
+  margin: 0 50px;
+  padding: 100px 0 0 0;
+}
+
+.landing__techs-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+}
+
+.landing__techs-subtitle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.56px;
+  max-width: 460px;
+  margin: 26px auto 0 auto;
+}
+
+.landing__techs-cards {
+  margin: 100px auto;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing__techs-card {
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #e8e8e8;
+  width: 90px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.landing__about-me {
+  margin-top: 110px;
+  max-width: 1140px;
+  margin: 110px auto 100px auto;
+}
+
+.landing__about-me-header {
+  max-width: 730px;
+  color: #000;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.landing__about-me-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+}
+
+.landing__about-pic {
+  min-width: 270px;
+  min-height: 327px;
+  max-width: 292px;
+  max-height: 352px;
+  border-radius: 10px;
+}
+
+.landing__about-me-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.landing__about-me-subtitle {
+  margin: 18px auto 26px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.landing__about-me-text {
+  text-align: left;
+  max-width: 600px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.landing__about-me-link {
+  text-decoration: none;
+  color: black;
+  margin-top: 99px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.landing__about-me-link:hover {
+  opacity: 0.7;
+}
+
+.landing__portfolio {
+  max-width: 1140px;
+  margin: 100px auto 170px auto;
+}
+
+.landing__portfolio-header {
+  color: #a0a0a0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.landing__portfolio-container {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.landing__link-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.landing__link-box:last-of-type {
+  border: none;
+}
+
+.landing__portfolio-text {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  margin: 0;
+}
+
+.landing__portfolio-link {
+  color: #000;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  text-decoration: none;
+  transition: 0.2s;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing__portfolio-link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1140px) {
+  .landing__about-project {
+    margin: 110px 30px;
+  }
+
+  .landing__techs {
+    background-color: transparent;
+  }
+
+  .landing__about-me {
+    margin: 110px 50px 100px 30px;
+  }
+
+  .landing__portfolio {
+    margin: 100px 50px 125px 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .landing__banner {
+    height: 768px;
+  }
+
+  .landing__about-project {
+    margin: 90px 50px;
+  }
+
+  .landing__scale-container {
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .landing__techs-subtitle {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
+
+  .landing__techs-cards {
+    margin: 80px 0 90px 0;
+  }
+  
+  .landing__techs-card {
+    width: 84px;
+    margin: 5px;
+  }
+
+  .content {
+    margin: 80px 30px;
+  }
+
+  .landing__about-me {
+    margin: 90px 50px;
+  }
+
+  .landing__about-me-text-container {
+    margin-right: 15px;
+  }
+
+  .landing__about-container {
+    gap: 15px;
+    margin: 70px 0 93px 0;
+  }
+
+  .landing__about-pic {
+    width: 255px;
+    height: 307px;
+  }
+
+  .landing__scale-text_size_m {
+    margin: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  .landing__portfolio {
+    margin: 90px 50px 170px 50px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .landing__about-me-container {
+    flex-direction: column-reverse;
+  }  
+
+  .landing__about-me-header {
+    margin-top: 40px;
+  }
+
+  .landing__title {
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: -1.24px;
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .content {
+    margin: 80px 10px;
+  }
+
+  .landing__title {
+    padding: 0 10px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1.2px;
+  }
+
+  .landing__banner {
+    height: 570px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 248px;
+  }
+
+  .landing__menu-link {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    padding-right: 24px;
+  }
+
+  .landing__subtitle {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .landing__about-header {
+    font-size: 18px;
+  }
+
+  .landing__about-text {
+    font-size: 11px;
+  }
+
+  .landing__about-container {
+    flex-direction: column;
+    margin: 5px auto 60px auto;
+    gap: 0;
+  }
+
+  .landing__abouts {
+    width: 100%;
+  }
+
+  .landing__about-project {
+    margin: 70px 18px 55px 18px;
+  }
+
+  .landing__about-header {
+    margin: 0 auto 16px auto;
+  }
+
+  .landing__about-header:last-of-type {
+    margin: 51px auto 16px auto;
+  }
+
+  .landing__scale-text_size_s {
+    font-size: 11px;
+  }
+
+  .landing__scale-text_size_m {
+    font-size: 11px;
+  }
+
+  .landing__scale-container {
+    grid-template-columns: 1fr 2fr;
+    gap: 10px 0;
+  }
+
+  .landing__techs-subtitle {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+
+  .landing__techs-card {
+    font-size: 11px;
+    margin: 5px;
+    height: 57px;
+  }
+
+  .landing__techs-cards {
+    margin: 50px 40px 70px 50px;
+  }
+
+  .landing__techs-cards:after {
+    content: "";
+    width: 95px;
+  }
+
+  .landing__techs {
+    background-color: transparent;
+    margin: 0 18px;
+    padding-top: 70px;
+  }
+
+  .landing__techs-container {
+    margin-top: 60px;
+  }
+
+  .landing__about-me {
+    margin: 70px 10px;
+  }
+
+  .landing__about-pic {
+    width: 292px;
+    height: 352px;
+  }
+
+  .landing__about-me-container {
+    align-items: center;
+  }
+
+  .landing__about-me-text-container {
+    margin: 40px auto 0 auto;
+  }
+
+  .landing__about-me-header {
+    font-size: 30px;
+    margin-top: 0;
+    letter-spacing: -1.2px;
+    line-height: normal;
+  }
+
+  .landing__about-me-subtitle {
+    font-size: 11px;
+  }
+
+  .landing__about-me-text {
+    font-size: 11px;
+  }
+
+  .landing__about-me-link {
+    margin-top: 40px;
+  }
+
+  .landing__portfolio {
+    margin: 0 14px 70px 14px;
+  }
+
+  .landing__portfolio-header {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .landing__portfolio-text {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .landing__portfolio-link {
+    font-size: 18px;
+  }
+}
